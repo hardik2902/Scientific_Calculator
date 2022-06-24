@@ -195,6 +195,15 @@ def main():
         except Exception:
             tkinter.messagebox.showinfo("Value error! check your operator and operand")
 
+    def btn_inv():
+        try:
+            ans = float(disp.get())
+            ans = 1/ans
+            disp.delete(0, END)
+            disp.insert(0, str(ans))
+        except Exception:
+            tkinter.messagebox.showerror("Error", "Can't Divide by Zero ")
+
     def btn_root():
         try:
             ans = float(disp.get())
@@ -524,6 +533,7 @@ def main():
         global switch
         global hyp
         if switch is None:
+            shift_btn["bg"] = "Blue"
             switch = True
             if hyp:
                 sin_btn["text"] = "sinh-1"
@@ -559,6 +569,7 @@ def main():
                 nlog_btn["font"] = "segue 9 bold"
         else:
             switch = None
+            shift_btn["bg"] = "Black"
             if hyp:
                 sin_btn["text"] = "sinh"
                 sin_btn["font"] = "segue 11 bold"
@@ -592,7 +603,7 @@ def main():
                 nlog_btn["text"] = " ln"
                 nlog_btn["font"] = "segue 12 bold"
 
-    disp = Entry(root, font="Verdana", fg="White", bg="Black", bd=0, justify=RIGHT)
+    disp = Entry(root, font="Verdana 30", fg="White", bg="Black", bd=0, justify=RIGHT)
     disp.insert(0, "0")
     disp.pack(expand=TRUE, fill=BOTH)
     # FRAME__1
@@ -600,10 +611,14 @@ def main():
     row1.pack(expand=TRUE, fill=BOTH)
     conv_btn = Button(row1, text="RAD", font="segue 13 bold", command=btn_conv, relief=GROOVE, bd=0, fg="white", bg="Black")
     conv_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
-    hyp_btn = Button(row1, text="hyp", font="segue 13 bold", command=btn_hyp, relief=GROOVE, bd=0, fg="white", bg="Black")
+    hyp_btn = Button(row1, text="hyp", font="segue 14 bold", command=btn_hyp, relief=GROOVE, bd=0, fg="white", bg="Black")
     hyp_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
     round_btn = Button(row1, text="Round", font="segue 13 bold", command=btn_round, relief=GROOVE, bd=0, fg="white", bg="Black")
     round_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
+    inv_btn = Button(row1, text="1/x", font="segue 13 bold", command=btn_inv, relief=GROOVE, bd=0, fg="white", bg="Black")
+    inv_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
+    pm_btn = Button(row1, text="|x|", font="segue 15", command=btn_pm, relief=GROOVE, bd=0, fg="white", bg="Black")
+    pm_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
     # FRAME__2
     row2 = Frame(root, bg="#000000")
     row2.pack(expand=TRUE, fill=BOTH)
@@ -622,7 +637,7 @@ def main():
     # FRAME__3
     row3 = Frame(root, bg="#000000")
     row3.pack(expand=TRUE, fill=BOTH)
-    sqr_btn = Button(row3, text="x^2", font="segue 13", command=btn_sqr, relief=GROOVE, bd=0, fg="white", bg="Black")
+    sqr_btn = Button(row3, text="x^2", font="segue 13 bold", command=btn_sqr, relief=GROOVE, bd=0, fg="white", bg="Black")
     sqr_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
     cos_btn = Button(row3, text="cos", font="segue 14 ", command=btn_cos, relief=GROOVE, bd=0, fg="white", bg="Black")
     cos_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
