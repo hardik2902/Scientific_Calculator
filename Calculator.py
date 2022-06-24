@@ -118,6 +118,11 @@ def main():
             disp.delete(0, END)
             disp.insert(0, str(x))
 
+    def btn_abs():
+        y=int(disp.get())
+        disp.delete(0,END)
+        disp.insert(0, str(math.fabs(y)))
+
     def btn_dot():
         pos = len(disp.get())
         disp.insert(pos, ".")
@@ -617,8 +622,8 @@ def main():
     round_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
     inv_btn = Button(row1, text="1/x", font="segue 13 bold", command=btn_inv, relief=GROOVE, bd=0, fg="white", bg="Black")
     inv_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
-    pm_btn = Button(row1, text="|x|", font="segue 15", command=btn_pm, relief=GROOVE, bd=0, fg="white", bg="Black")
-    pm_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
+    abs_btn = Button(row1, text="|x|", font="segue 15", command=btn_abs, relief=GROOVE, bd=0, fg="white", bg="Black")
+    abs_btn.pack(side=LEFT, expand=TRUE, fill=BOTH)
     # FRAME__2
     row2 = Frame(root, bg="#000000")
     row2.pack(expand=TRUE, fill=BOTH)
