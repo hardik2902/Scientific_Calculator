@@ -124,8 +124,12 @@ def main():
         disp.insert(0, str(math.fabs(y)))
 
     def btn_dot():
-        pos = len(disp.get())
-        disp.insert(pos, ".")
+        ans = disp.get()
+        if ans[-1] in ["+", "-", "/", "x", "*"]:
+            tkinter.messagebox.showerror("Value Error", "Invalid input")
+        else:
+            pos = len(disp.get())
+            disp.insert(pos, ".")
 
     def btn_nlog():
         try:
